@@ -31,12 +31,21 @@ class TicTacToe
     @board[index] = value
   end
 
+<<<<<<< HEAD
   def position_taken?(index)
     !(@board[index].nil? || @board[index] == " ")
   end
 
   def valid_move?(index)
     if index.between?(0,9) && position_taken?(index) == false
+=======
+  def position_taken?(board, index)
+    !(@board[index].nil? || @board[index] == " ")
+  end
+
+  def valid_move?(board, index)
+    if index.between?(0,9) && position_taken?(@board, index) == false
+>>>>>>> 226b656eb29fa4faaa3e57d2ad98c2d28003c3eb
       return true
     end
   end
@@ -53,8 +62,13 @@ class TicTacToe
     puts "Please enter 1-9:"
     input = gets.strip
     index = input_to_index(input)
+<<<<<<< HEAD
     if valid_move?(index)
       move(index, current_player)
+=======
+    if valid_move?(@board, index)
+      move(index, current_player(board))
+>>>>>>> 226b656eb29fa4faaa3e57d2ad98c2d28003c3eb
       display_board
     else
       turn
@@ -74,7 +88,11 @@ class TicTacToe
   end
 
   def draw?
+<<<<<<< HEAD
     if !won? && full?
+=======
+    if !won? && over?
+>>>>>>> 226b656eb29fa4faaa3e57d2ad98c2d28003c3eb
       return true
     end
   end
@@ -100,7 +118,11 @@ class TicTacToe
       turn
     end
     if winner
+<<<<<<< HEAD
       puts "Congratulations #{winner}!"
+=======
+      puts "Congratulations #{winner(board)}!"
+>>>>>>> 226b656eb29fa4faaa3e57d2ad98c2d28003c3eb
     elsif draw?
       puts "Cat's Game!"
     end
